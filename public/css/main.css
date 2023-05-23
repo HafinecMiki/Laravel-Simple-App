@@ -1,0 +1,33 @@
+.laravel-icon {
+    width: 45px;
+}
+
+.companies-header-th {
+    padding: 8px;
+}
+
+.companies-table {
+    background-color: #f4f4f4;
+}
+
+.companies-header-td {
+    padding: 8px;
+}
+
+.add-new-company-button {
+    width: 100px;
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid #bfbaba;
+}
+
+.companies-header-td,
+.companies-header-th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.companies-header-tr:nth-child(even) {
+    background-color: #dddddd;
+}

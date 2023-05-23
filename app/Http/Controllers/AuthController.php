@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Hash;
  
 class AuthController extends Controller
 {
+    public function checkLogin()
+    {
+        if(Auth::check()){
+            return view('home');
+        }
+        else{
+            return view('login');
+        }
+    }
+
     public function register()
     {
         return view('register');

@@ -5,9 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
  
  
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/', [AuthController::class, 'checkLogin']);
  
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');

@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('v1')->group(function () {
-    Route::group(['middleware' => 'auth'], function () {
-        Route::get('valami', [CompanyController::class, 'viewAddNew']);
-    });
+Route::group(['middleware' => 'guest'], function () {
+    Route::post('/login', [AuthController::class, 'login'])->name('login-request');
+});
+ 
+Route::group(['middleware' => 'auth'], function () {
+    //functions company
+    Route::post('/company-create', [CompanyController::class, 'store'])->name('company-create');
+    Route::put('/company/{company}', [CompanyController::class, 'update'])->name('company-edit');
+    Route::delete('/company/{company}', [CompanyController::class, 'delete'])->name('company-delete');
 });

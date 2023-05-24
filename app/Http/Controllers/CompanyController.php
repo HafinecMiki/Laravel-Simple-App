@@ -7,22 +7,10 @@ use App\Http\Requests\CompanyCreateRequest;
 use App\Http\Requests\CompanyUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\Company;
+use Illuminate\Support\Facades\Redirect;
 
 class CompanyController extends Controller
 {
-    public function viewDetails()
-    {
-        return view('company_details');
-    }
-    
-    public function viewAddNew()
-    {
-        return view('create_or_edit_company');
-    }
-    public function view()
-    {
-        return view('companies');
-    }
     public static function index()
     {
         return Company::all();
@@ -52,6 +40,6 @@ class CompanyController extends Controller
     public function delete(Company $company) {
         $company->delete();
 
-        return view('companies');
+        return redirect('/');
     }
 }

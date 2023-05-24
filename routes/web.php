@@ -1,29 +1,29 @@
 <?php
- 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
- 
- 
-Route::get('/', [AuthController::class, 'checkLogin']);
- 
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/register', [AuthController::class, 'register'])->name('register');
-    Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+use Illuminate\Support\Facades\Auth;
+
+
+Route::get('/', function () {
+    if (Auth::check()) {
+        return view('companies');
+    } else {
+        return view('login');
+    }
 });
- 
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/login', function() { return view('login'); })->name('login');
+});
+
 Route::group(['middleware' => 'auth'], function () {
     // view company
-    Route::get('/companies', [CompanyController::class, 'view']);
-    Route::get('/company-details/{company}', [CompanyController::class, 'viewDetails']);
-    Route::get('/add-or-edit-company', [CompanyController::class, 'viewAddNew']);
-    Route::get('/add-or-edit-company/{company}', [CompanyController::class, 'viewAddNew']);
-    //functions company
-    Route::post('/company-create', [CompanyController::class, 'store'])->name('company-create');
-    Route::put('/company/{company}', [CompanyController::class, 'update'])->name('company-edit');
-    Route::delete('/company/{company}', [CompanyController::class, 'delete'])->name('company-delete');
+    Route::get('/companies', function() { return view('view'); });
+    Route::get('/company-details/{company}', function() { return view('company_details'); });
+    Route::get('/add-or-edit-company', function() { return view('create_or_edit_company'); });
+    Route::get('/add-or-edit-company/{company}', function() { return view('create_or_edit_company'); });
 
     //logout
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');

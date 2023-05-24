@@ -44,7 +44,7 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
                         <a href="{{ url('/add-or-edit-company/' . $company->id) }}">
                             <button class="btn btn-primary px-4">Edit</button>
                         </a>
-                        <form action="{{ url('/company/' . $company->id) }}" method="POST" class="d-flex">
+                        <form action="{{ url('/api/company/' . $company->id) }}" method="POST" class="d-flex">
                             {{method_field('DELETE')}}
                             {{csrf_field()}}
                             <button class="btn btn-danger" type="submit">Delete</button>

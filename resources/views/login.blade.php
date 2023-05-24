@@ -20,7 +20,7 @@
                             {{ Session::get('error') }}
                         </div>
                     @endif
-                    <form action="{{ route('login') }}" method="POST">
+                    <form action="{{ route('login-request') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>

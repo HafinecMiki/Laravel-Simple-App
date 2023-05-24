@@ -2,47 +2,13 @@
  
 namespace App\Http\Controllers;
  
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
  
 class AuthController extends Controller
 {
-    public function checkLogin()
-    {
-        if(Auth::check()){
-            return view('companies');
-        }
-        else{
-            return view('login');
-        }
-    }
-
-    public function register()
-    {
-        return view('register');
-    }
  
-    public function registerPost(Request $request)
-    {
-        $user = new User();
- 
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
- 
-        $user->save();
- 
-        return back()->with('success', 'Register successfully');
-    }
- 
-    public function login()
-    {
-        return view('login');
-    }
- 
-    public function loginPost(Request $request)
+    public function login(Request $request)
     {
         $credetials = [
             'email' => $request->email,

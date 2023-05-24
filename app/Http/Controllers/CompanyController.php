@@ -3,23 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CompanyCreateRequest;
+use App\Http\Requests\CompanyUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\Company;
+use Illuminate\Support\Facades\Validator;
 
 class CompanyController extends Controller
 {
+    public function viewDetails()
+    {
+        return view('company_details');
+    }
+    
+    public function viewAddNew()
+    {
+        return view('create_or_edit_company');
+    }
+    public function view()
+    {
+        return view('companies');
+    }
     public static function index()
     {
         return Company::all();
     }
 
-    public function store(Request $request)
+    public static function showById(int $id)
     {
-        return Company::create([
-            'name' => $request->name,
-            'tax_number' => $request->tax_number,
-            'phone_number' => $request->phone_number,
-            'email' => $request->email,
-        ]);
+        return Company::find($id);
+    }
+
+    public function store(CompanyCreateRequest $request)
+    {
+        Company::create($request->validated());
+
+        return back()->with('success', 'Create company successfully');
+    }
+
+    public function update(CompanyUpdateRequest $request, Company $company)
+    {
+        $company->update($request->validated());
+
+        return back()->with('success', 'Update company successfully');
     }
 }

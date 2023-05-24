@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::post('company', [CompanyController::class, 'store']);
+Route::prefix('v1')->group(function () {
+    Route::group(['middleware' => 'auth'], function () {
+        Route::get('valami', [CompanyController::class, 'viewAddNew']);
+    });
 });

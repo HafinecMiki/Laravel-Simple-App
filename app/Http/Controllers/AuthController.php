@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function checkLogin()
     {
         if(Auth::check()){
-            return view('home');
+            return view('companies');
         }
         else{
             return view('login');
@@ -50,7 +50,7 @@ class AuthController extends Controller
         ];
  
         if (Auth::attempt($credetials)) {
-            return redirect('/home')->with('success', 'Login Success');
+            return redirect('/')->with('success', 'Login Success');
         }
  
         return back()->with('error', 'Error Email or Password');

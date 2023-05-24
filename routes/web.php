@@ -2,7 +2,7 @@
  
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CompanyController;
  
  
 Route::get('/', [AuthController::class, 'checkLogin']);
@@ -15,6 +15,16 @@ Route::group(['middleware' => 'guest'], function () {
 });
  
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/home', [HomeController::class, 'index']);
+    // view company
+    Route::get('/companies', [CompanyController::class, 'view']);
+    Route::get('/company-details/{company}', [CompanyController::class, 'viewDetails']);
+    Route::get('/add-or-edit-company', [CompanyController::class, 'viewAddNew']);
+    Route::get('/add-or-edit-company/{company}', [CompanyController::class, 'viewAddNew']);
+    //functions company
+    Route::post('/company-create', [CompanyController::class, 'store'])->name('company-create');
+    Route::put('/company/{company}', [CompanyController::class, 'update'])->name('company-edit');
+    Route::delete('/company', [CompanyController::class, 'store']);
+
+    //logout
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });

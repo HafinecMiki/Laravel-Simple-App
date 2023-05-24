@@ -7,7 +7,6 @@ use App\Http\Requests\CompanyCreateRequest;
 use App\Http\Requests\CompanyUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\Company;
-use Illuminate\Support\Facades\Validator;
 
 class CompanyController extends Controller
 {
@@ -43,8 +42,16 @@ class CompanyController extends Controller
 
     public function update(CompanyUpdateRequest $request, Company $company)
     {
-        $company->update($request->validated());
+        $data = $request->validated();
+
+        $company->update($data);
 
         return back()->with('success', 'Update company successfully');
+    }
+
+    public function delete(Company $company) {
+        $company->delete();
+
+        return view('companies');
     }
 }

@@ -19,10 +19,10 @@ $company = request('company') ? App\Http\Controllers\CompanyController::showById
 
     @section('content')
     <div class="row justify-content-center mt-5">
-        <div class="col-lg-4">
+        <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
-                    <h1 class="card-title">{{$company ? 'Edit' : 'Add new'}} company</h1>
+                    <h3 class="card-title">{{$company ? 'Edit' : 'Add new'}} company</h1>
                 </div>
                 <div class="card-body">
                     @if(Session::has('success'))
@@ -31,15 +31,19 @@ $company = request('company') ? App\Http\Controllers\CompanyController::showById
                     </div>
                     @endif
 
-                    @if(Session::has('error'))
+                    @if($errors->any())
                     <div class="alert alert-danger" role="alert">
-                        {{ Session::get('error') }}
+                        <ul class="list-unstyled m-0">
+                            @foreach($errors->all() as $error)
+                            <li> {{ $error }} </li>
+                            @endforeach
+                        </ul>
                     </div>
                     @endif
 
                     <form action="{{ $company ? route('company-edit', $company->id) : route('company-create') }}" method="POST">
                         @csrf
-                        {{  $company ? method_field('PUT') : method_field('POST')  }}
+                        {{ $company ? method_field('PUT') : method_field('POST')  }}
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" value="{{ $company ? $company->name : ''}}" required>
@@ -62,6 +66,11 @@ $company = request('company') ? App\Http\Controllers\CompanyController::showById
                             </div>
                         </div>
                     </form>
+                    <div class="mb-3">
+                        <a class="d-grid" href="/company-details/{{request('company')}}">
+                            <button class="btn btn-secondary">Back</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

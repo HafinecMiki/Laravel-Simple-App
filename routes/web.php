@@ -23,7 +23,7 @@ Route::group(['middleware' => 'auth'], function () {
     //functions company
     Route::post('/company-create', [CompanyController::class, 'store'])->name('company-create');
     Route::put('/company/{company}', [CompanyController::class, 'update'])->name('company-edit');
-    Route::delete('/company', [CompanyController::class, 'store']);
+    Route::delete('/company/{company}', [CompanyController::class, 'delete'])->name('company-delete');
 
     //logout
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');

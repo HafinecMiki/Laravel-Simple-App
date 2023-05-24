@@ -25,7 +25,7 @@ class CompanyUpdateRequest extends FormRequest
             'name'          => 'required|string',
             'tax_number'    => 'required|string',
             'phone_number'  => 'required|string',
-            'email'         => 'required|email|unique:App\Models\Company,email,' . $this->company->id,
+            'email'         => 'required|email|unique:companies,email,' . $this->company->id ,
         ];
     }
 
@@ -37,11 +37,11 @@ class CompanyUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => back()->with('error', 'Name is required!'),
-            'tax_number.required' => back()->with('error', 'Tax number is required!'),
-            'phone_number.required' => back()->with('error', 'Phone number is required!'),
-            'email.required' => back()->with('error', 'Email is required!'),
-            'email.unique' => back()->with('error', 'Email is alredy used!'),
+            'name.required' => 'Name is required!',
+            'tax_number.required' => 'Tax number is required!',
+            'phone_number.required' => 'Phone number is required!',
+            'email.required' =>'Email is required!',
+            'email.unique' => 'Email is alredy used!',
         ];
     }
 }

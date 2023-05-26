@@ -12,3 +12,12 @@ Database: `mvc`
 ```CREATE Database mvc;```
 
 Click the database and put sql command:
+
+TODO:
+- bootstrap css
+- popup delete esetén
+- mobil mode
+- 2 fektoros belépés, küldünk egy kódok az emaira
+- clean code
+- read me update
+

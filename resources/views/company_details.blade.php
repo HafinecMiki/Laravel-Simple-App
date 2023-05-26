@@ -10,6 +10,29 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
     @section('content')
 
     <div class="row justify-content-center mt-5">
+        <!-- Modal -->
+        <div class="modal fade" id="CompanyDeleteModal" tabindex="-1" aria-labelledby="CompanyDeleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="CompanyDeleteModalLabel">Confirm Deletion</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h6>Are you sure you want to delete this company?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <form action="{{ url('/api/company/' . $company->id) }}" method="POST" class="d-flex">
+                            {{method_field('DELETE')}}
+                            {{csrf_field()}}
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Details -->
         <div class="col-lg-6">
             <div class="card">
                 <div class="card-header">
@@ -18,10 +41,6 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
                 <div class="card-body">
                     <table class="table table-striped table-light">
                         <tbody>
-                            <tr>
-                                <td>Id</td>
-                                <td>{{$company->id}}</td>
-                            </tr>
                             <tr>
                                 <td>Name</td>
                                 <td>{{$company->name}}</td>
@@ -44,11 +63,8 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
                         <a href="{{ url('/add-or-edit-company/' . $company->id) }}">
                             <button class="btn btn-primary px-4">Edit</button>
                         </a>
-                        <form action="{{ url('/api/company/' . $company->id) }}" method="POST" class="d-flex">
-                            {{method_field('DELETE')}}
-                            {{csrf_field()}}
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                        </form>
+                        <!-- Button trigger modal -->
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#CompanyDeleteModal">Delete</button>
                     </div>
                 </div>
             </div>

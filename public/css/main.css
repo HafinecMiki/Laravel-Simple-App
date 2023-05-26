@@ -31,3 +31,7 @@
 .companies-header-tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.word-break {
+    word-break: break-word;
+}

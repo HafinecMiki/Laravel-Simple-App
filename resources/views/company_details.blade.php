@@ -9,9 +9,8 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
 
     @section('content')
 
-    <div class="row justify-content-center mt-5">
-        <!-- Modal -->
-        <div class="modal fade" id="CompanyDeleteModal" tabindex="-1" aria-labelledby="CompanyDeleteModalLabel" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade" id="CompanyDeleteModal" tabindex="-1" aria-labelledby="CompanyDeleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -33,7 +32,9 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
             </div>
         </div>
         <!-- Details -->
-        <div class="col-lg-6">
+
+    <div class="row mx-0 justify-content-center mt-sm-0 mt-3">
+        <div class="col-sm-6 px-4 pb-2">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Details</h1>
@@ -43,19 +44,19 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
                         <tbody>
                             <tr>
                                 <td>Name</td>
-                                <td>{{$company->name}}</td>
+                                <td class="word-break">{{$company->name}}</td>
                             </tr>
                             <tr>
                                 <td>Tax number</td>
-                                <td>{{$company->tax_number}}</td>
+                                <td class="word-break">{{$company->tax_number}}</td>
                             </tr>
                             <tr>
                                 <td>Phone number</td>
-                                <td>{{$company->phone_number}}</td>
+                                <td class="word-break">{{$company->phone_number}}</td>
                             </tr>
                             <tr>
                                 <td>Email</td>
-                                <td>{{$company->email}}</td>
+                                <td class="word-break">{{$company->email}}</td>
                             </tr>
                         </tbody>
                     </table>

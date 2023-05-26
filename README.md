@@ -14,8 +14,8 @@ Database: `mvc`
 Click the database and put sql command:
 
 TODO:
-- bootstrap css
-- popup delete esetén
+- bootstrap css X
+- popup delete esetén X
 - mobil mode
 - 2 fektoros belépés, küldünk egy kódok az emaira
 - clean code

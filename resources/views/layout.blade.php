@@ -24,6 +24,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      @if(Auth::check())
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <div class="d-flex align-items-center">
@@ -37,6 +38,22 @@
           <button class="btn btn-danger" type="submit">Logout</button>
         </form>
       </div>
+      @else
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item d-flex align-items-center">
+            <button class="btn layout-nav-button">
+              <a class="nav-link" href="{{ url('/') }}">Login</a>
+            </button>
+          </li>
+          <li class="nav-item d-flex align-items-center ms-2">
+            <button class="btn layout-nav-button">
+              <a class="nav-link" href="{{ url('/register') }}">Register</a>
+            </button>
+          </li>
+        </ul>
+      </div>
+      @endif
     </div>
   </nav>
   <div>

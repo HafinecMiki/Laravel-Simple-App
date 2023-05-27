@@ -35,3 +35,8 @@
 .word-break {
     word-break: break-word;
 }
+
+.layout-nav-button {
+    padding: 0px 10px !important;
+    border: 1px solid #d7d7d7;
+}

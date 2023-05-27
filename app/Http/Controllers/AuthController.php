@@ -76,7 +76,7 @@ class AuthController extends Controller
             }
 
             //send email
-            Mail::to($request->email)->send(new VerifyCodeMail($code));
+            //Mail::to($request->email)->send(new VerifyCodeMail($code));
 
             return redirect('/verify');
         }

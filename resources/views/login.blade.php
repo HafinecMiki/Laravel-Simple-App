@@ -10,6 +10,9 @@
 </head>
 
 <body>
+@extends('layout')
+
+@section('content')
     <div class="row mx-0 justify-content-center mt-5">
         <div class="col-lg-4">
             <div class="card">
@@ -22,7 +25,7 @@
                         {{ Session::get('error') }}
                     </div>
                     @endif
-                    <form id="form1" method="POST">
+                    <form id="loginForm" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
@@ -47,18 +50,16 @@
             </div>
         </div>
     </div>
+    @stop
 </body>
 <script type="text/javascript">
     function submitForm(action) {
-        console.log(action)
-        var form = document.getElementById('form1');
-        if(action == 'login'){ 
+        var form = document.getElementById('loginForm');
+        if (action == 'login') {
             form.action = "{{ route('login-request') }}";
-        }
-        else {
+        } else {
             form.action = "{{ route('login2FA') }}";
         }
-        
         form.submit();
     }
 </script>

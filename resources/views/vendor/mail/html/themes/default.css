@@ -4,7 +4,7 @@ body,
 body *:not(html):not(style):not(br):not(tr):not(code) {
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'DM Sans', Roboto, 'Poppins', Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     position: relative;
 }
 
@@ -18,14 +18,14 @@ body {
     width: 100% !important;
 }
 
-.email-logo-image{
+.email-logo-image {
     padding-left: 50px;
     padding-bottom: 25px;
     max-width: 220px;
     max-height: 100px;
 }
 
-.content-cell-div{
+.content-cell-div {
     padding-left: 50px;
     padding-right: 20px;
 }
@@ -38,12 +38,12 @@ a.button.button-primary {
     border-bottom: 10px solid #80D5AE !important;
 }
 
-img.top-image{
+img.top-image {
     background-size: cover;
     width: 100% !important;
 }
 
-img.bottom-image{
+img.bottom-image {
     background-size: cover;
     width: 100% !important;
 }
@@ -319,7 +319,7 @@ img {
     word-break: break-all;
 }
 
-.item-table-th{
+.item-table-th {
     font-size: 14px;
     font-weight: 500;
     color: black;
@@ -328,19 +328,21 @@ img {
 }
 
 /* Shipped order email */
-.m-0{
+.m-0 {
     margin: 0px;
 }
 
-.items-center{
+.items-center {
     align-items: center !important;
 }
+
 .dot-div {
     background-image: url('https://swgresources-public-dev.s3.eu-central-1.amazonaws.com/images/email/dots16x16.png');
     width: 100%;
     height: 60px;
 }
-.button-tracking-number{
+
+.button-tracking-number {
     background-color: #fa4164;
     border-left: 20px solid #fa4164;
     border-right: 20px solid #fa4164;
@@ -350,100 +352,124 @@ img {
     font-size: 14px;
     font-weight: 600;
 }
-.flex{
+
+.flex {
     display: flex;
 }
-.font-medium{
+
+.font-medium {
     font-weight: 500 !important;
 }
-.van-image{
+
+.van-image {
     width: 25%;
     margin: 0px 15px;
     height: fit-content;
 }
-.text-blue{
+
+.text-blue {
     color: #3388f6
 }
-.hr-py{
+
+.hr-py {
     margin: 30px 30px 30px 0px !important;
 }
-.text-center{
+
+.text-center {
     text-align: center;
 }
-.fist-bump-image{
-    max-width:80px;
+
+.fist-bump-image {
+    max-width: 80px;
     max-height: 80px;
     margin-top: 15px;
     margin-bottom: 25px;
 }
-.h1-style{
+
+.h1-style {
     padding-bottom: 10px;
     padding-top: 5px;
     color: black;
 }
-.mb-5{
+
+.mb-5 {
     margin-bottom: 5px !important;
 }
-.my-20{
+
+.my-20 {
     margin: 20px 0px !important;
 }
-.py-20{
+
+.py-20 {
     padding: 20px 0px !important;
 }
-.pb-40{
+
+.pb-40 {
     padding-bottom: 40px !important;
 }
-.pb-5{
+
+.pb-5 {
     padding-bottom: 5px !important;
 }
-.pt-10{
+
+.pt-10 {
     padding-top: 10px !important;
 }
-.pt-20{
+
+.pt-20 {
     padding-top: 20px !important;
 }
-.pt-100{
+
+.pt-100 {
     padding-top: 100px !important;
 }
-.button-circle-image{
+
+.button-circle-image {
     width: 100%;
     padding-top: 80%;
 }
-.p-polygon-image{
+
+.p-polygon-image {
     width: 50%;
     padding-left: 20%;
 }
-.t-circle-image{
+
+.t-circle-image {
     height: 130px;
     padding-left: 31%;
     padding-top: 32%;
 }
-.y-cube-image{
+
+.y-cube-image {
     width: 40%;
     padding-left: 20%;
     padding-bottom: 16%;
 }
-.shopsea-logo-image{
+
+.shopsea-logo-image {
     width: 150px;
 }
-.fb-image{
+
+.fb-image {
     width: 30px;
     margin-right: 15px;
 }
-.tw-image{
+
+.tw-image {
     width: 30px;
 }
-.text-xs{
+
+.text-xs {
     font-size: 0.85rem !important;
 }
 
 /* order payed approved email */
 
-.text-transform-capitalize{
+.text-transform-capitalize {
     text-transform: capitalize;
 }
 
-.order-payed-approved-logo-div{
+.order-payed-approved-logo-div {
     width: 220px;
     text-align: center;
 }
@@ -452,7 +478,7 @@ img {
     margin-bottom: 0px !important;
 }
 
-.order-payed-approved-item-table-tr{
+.order-payed-approved-item-table-tr {
     width: 100%;
     padding-top: 15px;
     padding-bottom: 5px;
@@ -520,10 +546,12 @@ img {
     padding-bottom: 10%;
 
 }
-.p-0{
+
+.p-0 {
     padding: 0px !important;
 }
-.table-border-spacing-zero{
+
+.table-border-spacing-zero {
     border-spacing: 0
 }
 
@@ -538,7 +566,7 @@ img {
     padding-top: 5%;
 }
 
-.pl-0{
+.pl-0 {
     padding-left: 0px !important;
 }
 
@@ -600,24 +628,25 @@ img {
     padding-top: 85%;
 }
 
-.verify-logo{
+.verify-logo {
     padding-left: 30px !important;
 }
-.text-gray{
+
+.text-gray {
     color: gray !important;
 }
 
-.text-gray-400{
-    color: hsla(0,0%,10%,.5) !important;
+.text-gray-400 {
+    color: hsla(0, 0%, 10%, .5) !important;
 }
 
 /* Welcome email css */
 
-.welcome-logo{
+.welcome-logo {
     padding-left: 30px !important;
 }
 
-.font-size-medium{
+.font-size-medium {
     font-size: 16px !important;
 }
 
@@ -654,22 +683,43 @@ img {
 .welcome-email-button-circle-image {
     width: 68%;
 }
+
 .welcome-email-hex-grn-image {
     width: 88%;
     padding-left: 68%;
     padding-bottom: 96%;
 }
+
 .triangle-prpl-image {
     width: 82%;
     padding-left: 65%;
     padding-top: 8%;
 }
+
 .triangle-ylw-image {
     width: 90%;
     padding-left: 40%;
     padding-bottom: 10%;
 }
 
-.welcome-main-div-css{
+.welcome-main-div-css {
     padding: 0px 40px 0px 50px;
+}
+
+.verify-code-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #d9d3d3;
+    border-radius: 12px;
+}
+
+.verify-code-main-div {
+    padding: 20px;
+    color: black;
+}
+
+.verify-code-text {
+    padding-left: 40%;
 }

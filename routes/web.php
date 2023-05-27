@@ -16,6 +16,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', function() { return view('login'); })->name('login');
+    Route::get('/verify', function() { return view('login.confirm_code'); })->name('verify');
     Route::get('/register', function() { return view('register'); })->name('register');
 });
 

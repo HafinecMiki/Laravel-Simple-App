@@ -1,11 +1,12 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
+
+use App\Mail\VerifyCodeMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\VerifyCode;
+use App\Models\VerifyCode;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,31 +18,31 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ];
- 
+
         if (Auth::attempt($credetials)) {
             return redirect('/')->with('success', 'Login Success');
         }
- 
+
         return back()->with('error', 'Error Email or Password');
     }
 
     public function register(Request $request)
     {
         $user = new User();
- 
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
- 
+
         $user->save();
- 
+
         return back()->with('success', 'Register successfully');
     }
- 
+
     public function logout()
     {
         Auth::logout();
- 
+
         return redirect()->route('login');
     }
 
@@ -51,12 +52,51 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ];
-        
+
         // attempt
         if (Auth::validate($credetials)) {
-            Mail::to($request->email)->send(new VerifyCode($request->email));
+
+            $user = User::firstWhere('email', $request->email);
+
+            $code = rand(100000, 999999);
+
+            //check
+            $verify_code = VerifyCode::firstWhere('user_id', $user->id);
+
+            if($verify_code) {
+                $verify_code->update([
+                    'code' => $code
+                ]);
+            }
+            else{
+                VerifyCode::create([
+                    'code' => $code,
+                    'user_id' => $user->id
+                ]);
+            }
+
+            //send email
+            Mail::to($request->email)->send(new VerifyCodeMail($code));
+
+            return redirect('/verify');
         }
- 
+
         return redirect('/')->with('error', 'Error Email or Password');
+    }
+
+    public function loginVerifyCode(Request $request)
+    {
+        $verifyCode = VerifyCode::with(['user'])->firstWhere('code', $request->code);
+
+        if ($verifyCode) {
+            // login
+            Auth::login($verifyCode->user);
+            //remove code
+            $verifyCode->delete();
+
+            return redirect('/')->with('success', 'Login Success');
+        }
+
+        return back()->with('error', 'Invalid code!');
     }
 }

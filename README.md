@@ -17,7 +17,13 @@ TODO:
 - bootstrap css X
 - popup delete esetén X
 - mobil mode X
-- 2 fektoros belépés, küldünk egy kódok az emaira
+- 2 fektoros belépés, küldünk egy kódok az emailra
+  - kell egy Code tábla
+  - frontend oldal
+  - Code modell
+  - email a kódra
+  - kód létrehozása
+  - kód aktiválása
 - clean code
 - read me update
 

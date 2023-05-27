@@ -11,18 +11,18 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Address;
 
-class VerifyCode extends Mailable
+class VerifyCodeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public String $email;
+    public String $code;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(String $email)
+    public function __construct(String $code)
     {
-        $this->email = $email;
+        $this->code = $code;
     }
 
     /**
@@ -44,7 +44,7 @@ class VerifyCode extends Mailable
         return new Content(
             markdown: 'mail.verify_code',
             with: [
-                'email' => $this->email,
+                'code' => $this->code,
             ],
         );
     }

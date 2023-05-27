@@ -19,4 +19,6 @@ Please open terminal in project folder and put command:
 
 ```php artisan serve```
 
+Read tests
+
 

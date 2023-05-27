@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
- 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerifyCode;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 class AuthController extends Controller
 {
- 
     public function login(Request $request)
     {
         $credetials = [
@@ -21,11 +24,39 @@ class AuthController extends Controller
  
         return back()->with('error', 'Error Email or Password');
     }
+
+    public function register(Request $request)
+    {
+        $user = new User();
+ 
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+ 
+        $user->save();
+ 
+        return back()->with('success', 'Register successfully');
+    }
  
     public function logout()
     {
         Auth::logout();
  
         return redirect()->route('login');
+    }
+
+    public function login2FA(Request $request)
+    {
+        $credetials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+        
+        // attempt
+        if (Auth::validate($credetials)) {
+            Mail::to($request->email)->send(new VerifyCode($request->email));
+        }
+ 
+        return redirect('/')->with('error', 'Error Email or Password');
     }
 }

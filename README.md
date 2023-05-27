@@ -16,7 +16,7 @@ Click the database and put sql command:
 TODO:
 - bootstrap css X
 - popup delete esetén X
-- mobil mode
+- mobil mode X
 - 2 fektoros belépés, küldünk egy kódok az emaira
 - clean code
 - read me update

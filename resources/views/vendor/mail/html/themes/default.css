@@ -1,0 +1,675 @@
+/* Base */
+
+body,
+body *:not(html):not(style):not(br):not(tr):not(code) {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'DM Sans', Roboto, 'Poppins', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    position: relative;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+    background-color: #ffffff;
+    color: #718096;
+    height: 100%;
+    line-height: 1.4;
+    margin: 0;
+    width: 100% !important;
+}
+
+.email-logo-image{
+    padding-left: 50px;
+    padding-bottom: 25px;
+    max-width: 220px;
+    max-height: 100px;
+}
+
+.content-cell-div{
+    padding-left: 50px;
+    padding-right: 20px;
+}
+
+a.button.button-primary {
+    background-color: #80D5AE !important;
+    border-left: 20px solid #80D5AE !important;
+    border-right: 20px solid #80D5AE !important;
+    border-top: 10px solid #80D5AE !important;
+    border-bottom: 10px solid #80D5AE !important;
+}
+
+img.top-image{
+    background-size: cover;
+    width: 100% !important;
+}
+
+img.bottom-image{
+    background-size: cover;
+    width: 100% !important;
+}
+
+p,
+ul,
+ol,
+blockquote {
+    line-height: 1.4;
+    text-align: left;
+}
+
+a {
+    color: #3869d4;
+}
+
+a img {
+    border: none;
+}
+
+/* Typography */
+
+h1 {
+    color: #3d4852;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: left;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: left;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: left;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5em;
+    margin-top: 0;
+    text-align: left;
+}
+
+p.sub {
+    font-size: 12px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Layout */
+
+.wrapper {
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 100%;
+    background-color: #edf2f7;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.content {
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* Header */
+
+.header {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.header a {
+    color: #3d4852;
+    font-size: 19px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Logo */
+
+.logo {
+    height: 75px;
+    width: 75px;
+}
+
+/* Body */
+
+.body {
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 100%;
+    background-color: #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+    border-top: 1px solid #edf2f7;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.inner-body {
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 570px;
+    background-color: #ffffff;
+    border-color: #e8e5ef;
+    border-radius: 2px;
+    border-width: 1px;
+    box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015);
+    margin: 0 auto;
+    padding: 0;
+    width: 570px;
+}
+
+/* Subcopy */
+
+.subcopy {
+    border-top: 1px solid #e8e5ef;
+    margin-top: 25px;
+    padding-top: 25px;
+}
+
+.subcopy p {
+    font-size: 14px;
+}
+
+/* Footer */
+
+.footer {
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 570px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    width: 570px;
+}
+
+.footer p {
+    color: #b0adc5;
+    font-size: 12px;
+    text-align: center;
+}
+
+.footer a {
+    color: #b0adc5;
+    text-decoration: underline;
+}
+
+/* Tables */
+
+.table table {
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 100%;
+    margin: 30px auto;
+    width: 100%;
+}
+
+.table th {
+    border-bottom: 1px solid #edeff2;
+    margin: 0;
+    padding-bottom: 8px;
+}
+
+.table td {
+    color: #74787e;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.content-cell {
+    max-width: 100vw;
+    padding: 0px;
+    position: relative !important;
+}
+
+/* Buttons */
+
+.action {
+    -premailer-cellpadding: 0;
+    -premailer-cellspacing: 0;
+    -premailer-width: 100%;
+    margin: 30px auto;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.button {
+    -webkit-text-size-adjust: none;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.button-blue,
+.button-primary {
+    background-color: #2d3748;
+    border-bottom: 8px solid #2d3748;
+    border-left: 18px solid #2d3748;
+    border-right: 18px solid #2d3748;
+    border-top: 8px solid #2d3748;
+}
+
+.button-green,
+.button-success {
+    background-color: #48bb78;
+    border-bottom: 8px solid #48bb78;
+    border-left: 18px solid #48bb78;
+    border-right: 18px solid #48bb78;
+    border-top: 8px solid #48bb78;
+}
+
+.button-red,
+.button-error {
+    background-color: #e53e3e;
+    border-bottom: 8px solid #e53e3e;
+    border-left: 18px solid #e53e3e;
+    border-right: 18px solid #e53e3e;
+    border-top: 8px solid #e53e3e;
+}
+
+/* Panels */
+
+.panel {
+    border-left: #2d3748 solid 4px;
+    margin: 21px 0;
+}
+
+.panel-content {
+    background-color: #edf2f7;
+    color: #718096;
+    padding: 16px;
+}
+
+.panel-content p {
+    color: #718096;
+}
+
+.panel-item {
+    padding: 0;
+}
+
+.panel-item p:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Utilities */
+
+.break-all {
+    word-break: break-all;
+}
+
+.item-table-th{
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+/* Shipped order email */
+.m-0{
+    margin: 0px;
+}
+
+.items-center{
+    align-items: center !important;
+}
+.dot-div {
+    background-image: url('https://swgresources-public-dev.s3.eu-central-1.amazonaws.com/images/email/dots16x16.png');
+    width: 100%;
+    height: 60px;
+}
+.button-tracking-number{
+    background-color: #fa4164;
+    border-left: 20px solid #fa4164;
+    border-right: 20px solid #fa4164;
+    border-top: 12px solid #fa4164;
+    border-bottom: 12px solid #fa4164;
+    border-radius: 22px !important;
+    font-size: 14px;
+    font-weight: 600;
+}
+.flex{
+    display: flex;
+}
+.font-medium{
+    font-weight: 500 !important;
+}
+.van-image{
+    width: 25%;
+    margin: 0px 15px;
+    height: fit-content;
+}
+.text-blue{
+    color: #3388f6
+}
+.hr-py{
+    margin: 30px 30px 30px 0px !important;
+}
+.text-center{
+    text-align: center;
+}
+.fist-bump-image{
+    max-width:80px;
+    max-height: 80px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+.h1-style{
+    padding-bottom: 10px;
+    padding-top: 5px;
+    color: black;
+}
+.mb-5{
+    margin-bottom: 5px !important;
+}
+.my-20{
+    margin: 20px 0px !important;
+}
+.py-20{
+    padding: 20px 0px !important;
+}
+.pb-40{
+    padding-bottom: 40px !important;
+}
+.pb-5{
+    padding-bottom: 5px !important;
+}
+.pt-10{
+    padding-top: 10px !important;
+}
+.pt-20{
+    padding-top: 20px !important;
+}
+.pt-100{
+    padding-top: 100px !important;
+}
+.button-circle-image{
+    width: 100%;
+    padding-top: 80%;
+}
+.p-polygon-image{
+    width: 50%;
+    padding-left: 20%;
+}
+.t-circle-image{
+    height: 130px;
+    padding-left: 31%;
+    padding-top: 32%;
+}
+.y-cube-image{
+    width: 40%;
+    padding-left: 20%;
+    padding-bottom: 16%;
+}
+.shopsea-logo-image{
+    width: 150px;
+}
+.fb-image{
+    width: 30px;
+    margin-right: 15px;
+}
+.tw-image{
+    width: 30px;
+}
+.text-xs{
+    font-size: 0.85rem !important;
+}
+
+/* order payed approved email */
+
+.text-transform-capitalize{
+    text-transform: capitalize;
+}
+
+.order-payed-approved-logo-div{
+    width: 220px;
+    text-align: center;
+}
+
+.mb-0 {
+    margin-bottom: 0px !important;
+}
+
+.order-payed-approved-item-table-tr{
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.table-item-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: black;
+}
+
+.table-item-quantity {
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+}
+
+.order-payed-approved-dot-div {
+    background-image: url('https://swgresources-public-dev.s3.eu-central-1.amazonaws.com/images/email/dots16x16.png');
+    width: 60px;
+    height: 100px;
+}
+
+.bo-thank-you-prices-div {
+    width: 18rem;
+    margin-left: auto;
+}
+
+.font-semibold {
+    font-weight: 600 !important;
+}
+
+.text-black {
+    color: black;
+}
+
+.item-table-header-tr {
+    background-color: #fafafa;
+    border: 1px solid #c8c8c8;
+}
+
+.text-left {
+    text-align: left
+}
+
+.p-circle-image {
+    height: 45px;
+    padding-left: 62%;
+}
+
+.hex-grn-image {
+    width: 30%;
+    padding-left: 20%;
+    padding-bottom: 20%;
+}
+
+.circ-ylw-image {
+    width: 30%;
+    padding-bottom: 10%;
+
+}
+.p-0{
+    padding: 0px !important;
+}
+.table-border-spacing-zero{
+    border-spacing: 0
+}
+
+/* Verify email css */
+.branded-stores-text {
+    font-size: 14px !important;
+}
+
+.dots12-image {
+    width: 55%;
+    padding-left: 33%;
+    padding-top: 5%;
+}
+
+.pl-0{
+    padding-left: 0px !important;
+}
+
+.verify-email-shopsea-logo-image {
+    width: 40%;
+    padding-left: 5%;
+    padding-bottom: 22%;
+}
+
+.circle-yellow-image {
+    width: 68%;
+    padding-bottom: 10%;
+    padding-left: 55%;
+}
+
+.robot-image {
+    width: 100%;
+}
+
+.main-div-css {
+    padding: 0px 40px 40px 50px;
+}
+
+.verify-email-hex-grn-image {
+    width: 55%;
+    padding-left: 45%;
+}
+
+.button-activate-store {
+    background-color: #6cdfcb;
+    border: 1px solid #6cdfcb;
+    border-radius: 14px !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0.7rem 3.5rem !important;
+}
+
+.pl-30 {
+    padding-left: 30px;
+}
+
+.verify-email-h1-style {
+    padding-bottom: 10px;
+    padding-top: 5px;
+    color: black;
+    font-size: 24px !important;
+}
+
+.pt-130 {
+    padding-top: 130px !important;
+}
+
+.pt-65 {
+    padding-top: 65px !important;
+}
+
+.verify-email-button-circle-image {
+    width: 100%;
+    padding-top: 85%;
+}
+
+.verify-logo{
+    padding-left: 30px !important;
+}
+.text-gray{
+    color: gray !important;
+}
+
+.text-gray-400{
+    color: hsla(0,0%,10%,.5) !important;
+}
+
+/* Welcome email css */
+
+.welcome-logo{
+    padding-left: 30px !important;
+}
+
+.font-size-medium{
+    font-size: 16px !important;
+}
+
+.welcome-email-dots12-image {
+    width: 22%;
+    padding-left: 2%;
+    padding-bottom: 5%;
+}
+
+.welcome-email-shopsea-logo-image {
+    position: absolute !important;
+    top: 2%;
+    right: 0;
+    width: 120px;
+    height: 192px;
+    object-fit: cover;
+    object-position: left;
+}
+
+.welcome-email-circle-yellow-image {
+    width: 100%;
+    padding-left: 40%;
+}
+
+.button-get-started {
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 14px !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0.5rem 2.2rem !important
+}
+
+.welcome-email-button-circle-image {
+    width: 68%;
+}
+.welcome-email-hex-grn-image {
+    width: 88%;
+    padding-left: 68%;
+    padding-bottom: 96%;
+}
+.triangle-prpl-image {
+    width: 82%;
+    padding-left: 65%;
+    padding-top: 8%;
+}
+.triangle-ylw-image {
+    width: 90%;
+    padding-left: 40%;
+    padding-bottom: 10%;
+}
+
+.welcome-main-div-css{
+    padding: 0px 40px 0px 50px;
+}

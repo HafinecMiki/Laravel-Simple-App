@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'guest'], function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login-request');
+    Route::post('/login2FA', [AuthController::class, 'login2FA'])->name('login2FA');
+    Route::post('/register', [AuthController::class, 'register'])->name('register-request');
 });
  
 Route::group(['middleware' => 'auth'], function () {

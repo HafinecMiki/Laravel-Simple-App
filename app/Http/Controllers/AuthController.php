@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterUserRequest;
 use App\Mail\VerifyCodeMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -9,9 +10,16 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\VerifyCode;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class AuthController extends Controller
 {
+    /**
+     * Login
+     * 
+     * @param Request $request
+     * @return RedirectResponse 
+     */
     public function login(Request $request)
     {
         $credetials = [
@@ -26,7 +34,13 @@ class AuthController extends Controller
         return back()->with('error', 'Error Email or Password');
     }
 
-    public function register(Request $request)
+    /**
+     * register
+     * 
+     * @param RegisterUserRequest $request
+     * @return RedirectResponse 
+     */
+    public function register(RegisterUserRequest $request)
     {
         $user = new User();
 
@@ -39,6 +53,11 @@ class AuthController extends Controller
         return back()->with('success', 'Register successfully');
     }
 
+    /**
+     * Logout
+     * 
+     * @return RedirectResponse
+     */
     public function logout()
     {
         Auth::logout();
@@ -46,6 +65,12 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
+    /**
+     * Login 2 FA
+     * 
+     * @param Request $request
+     * @return RedirectResponse
+     */
     public function login2FA(Request $request)
     {
         $credetials = [
@@ -53,7 +78,6 @@ class AuthController extends Controller
             'password' => $request->password,
         ];
 
-        // attempt
         if (Auth::validate($credetials)) {
 
             $user = User::firstWhere('email', $request->email);
@@ -84,7 +108,13 @@ class AuthController extends Controller
         return redirect('/')->with('error', 'Error Email or Password');
     }
 
-    public function loginVerifyCode(Request $request)
+    /**
+     * login verify code
+     * 
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function loginVerifyCode(Request $request):RedirectResponse
     {
         $verifyCode = VerifyCode::with(['user'])->firstWhere('code', $request->code);
 
@@ -93,7 +123,6 @@ class AuthController extends Controller
             Auth::login($verifyCode->user);
             //remove code
             $verifyCode->delete();
-
             return redirect('/')->with('success', 'Login Success');
         }
 

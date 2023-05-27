@@ -5,25 +5,12 @@ Please download and install Xampp:
 
 https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.2.4/xampp-windows-x64-8.2.4-0-VS16-installer.exe/download
 
-After installation, please move project to C:\xampp\htdocs folder and run Apache and MySQL server in Xampp Controll Panel Apache. Open phpmyadmin page and put sql commands.
+After installation, please run Apache and MySQL server in Xampp Controll Panel Apache. Open phpmyadmin page and put sql commands.
 
-Database: `mvc`
+Database: `laraveldb`
 
-```CREATE Database mvc;```
+```CREATE Database laraveldb;```
 
-Click the database and put sql command:
+Please open terminal in project folder and fol
 
-TODO:
-- bootstrap css X
-- popup delete esetén X
-- mobil mode X
-- 2 fektoros belépés, küldünk egy kódok az emailra
-  - kell egy Code tábla
-  - frontend oldal
-  - Code modell
-  - email a kódra
-  - kód létrehozása
-  - kód aktiválása
-- clean code
-- read me update
 

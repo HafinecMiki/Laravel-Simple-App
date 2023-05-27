@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class SocialLoginController extends Controller
 {
     /**
      * Redirect the user to the Google authentication page.
      *
+     * @return RedirectResponse
      */
     public function redirectToProvider()
     {
@@ -19,8 +21,9 @@ class SocialLoginController extends Controller
     }
 
     /**
-     * social callback
-     *
+     * google callback
+     * 
+     * @return RedirectResponse
      */
     public function handleProviderCallback()
     {
@@ -30,7 +33,7 @@ class SocialLoginController extends Controller
             $user = User::query()->where('email', $socialiteUser->getEmail())->first();
 
             if(!$user) {
-                return redirect('/register')->with('error', 'User does not exist! Please register!');
+                return redirect('/register')->with('error', 'User does not exist! Please do the registration!');
             }
 
             Auth::login($user);

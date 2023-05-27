@@ -4,28 +4,27 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CompanyCreateRequest extends FormRequest
+class RegisterUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
-   /**
+    /**
      * Get the validation rules that apply to the request.
      *
-     * @return array;
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
      */
     public function rules(): array
     {
         return [
             'name'          => 'required|string',
-            'tax_number'    => 'required|string',
-            'phone_number'  => 'required|string',
-            'email'         => 'required|email|unique:App\Models\Company,email',
+            'password'      => 'required|string|min:6',
+            'email'         => 'required|email|unique:App\Models\User,email',
         ];
     }
 
@@ -38,8 +37,7 @@ class CompanyCreateRequest extends FormRequest
     {
         return [
             'name.required' => 'Name is required!',
-            'tax_number.required' => 'Tax number is required!',
-            'phone_number.required' => 'Phone number is required!',
+            'password.required' => 'Password is required!',
             'email.required' => 'Email is required!',
             'email.unique' => 'Email is alredy used!',
         ];

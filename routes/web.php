@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/login', function() { return view('login'); })->name('login');
     Route::get('/register', function() { return view('register'); })->name('register');
+
+    Route::get('sso/{provider}', [SocialLoginController::class, 'redirectToProvider']);
+    Route::post('sso/{provider}/redirect', [SocialLoginController::class, 'handleProviderCallback'])->where('provider', 'twitter');
 });
 
 Route::group(['middleware' => 'auth'], function () {

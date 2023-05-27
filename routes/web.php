@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\SocialLoginController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -19,8 +19,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/verify', function() { return view('login.confirm_code'); })->name('verify');
     Route::get('/register', function() { return view('register'); })->name('register');
 
-    Route::get('sso/{provider}', [SocialLoginController::class, 'redirectToProvider']);
-    Route::post('sso/{provider}/redirect', [SocialLoginController::class, 'handleProviderCallback'])->where('provider', 'twitter');
+    Route::get('sso/google', [SocialLoginController::class, 'redirectToProvider']);
+    Route::get('sso/google/callback', [SocialLoginController::class, 'handleProviderCallback']);
 });
 
 Route::group(['middleware' => 'auth'], function () {

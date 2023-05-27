@@ -46,6 +46,9 @@
                             </div>
                         </div>
                     </form>
+                <div>
+                    <a href="{{ url('/sso/google') }}" >Google</a>
+                </div>
                 </div>
             </div>
         </div>

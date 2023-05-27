@@ -11,6 +11,12 @@ Database: `laraveldb`
 
 ```CREATE Database laraveldb;```
 
-Please open terminal in project folder and fol
+Please open terminal in project folder and put command:
+
+```composer install```
+
+```php artisan migrate:fresh --seed```
+
+```php artisan serve```
 
 

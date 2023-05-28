@@ -22,7 +22,7 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <form action="{{ url('/api/company/' . $company->id) }}" method="POST" class="d-flex">
+                        <form action="{{ url('/api/v1/company/' . $company->id) }}" method="POST" class="d-flex">
                             {{method_field('DELETE')}}
                             {{csrf_field()}}
                             <button class="btn btn-danger" type="submit">Delete</button>

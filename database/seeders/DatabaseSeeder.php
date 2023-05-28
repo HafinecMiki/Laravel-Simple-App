@@ -26,6 +26,13 @@ class DatabaseSeeder extends Seeder
          // Company
          Company::factory(5)->create();
 
+         Company::factory()->create([
+            'name' => 'Test Company',
+            'tax_number' => 'test tax number',
+            'phone_number' => 'test phone number',
+            'email' => 'test@example.com'
+        ]);
+
          echo "Login \n";
          echo 'email: ' . $user->email . "\n";
          echo 'password: password' . "\n";

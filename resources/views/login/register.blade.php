@@ -16,10 +16,14 @@
                             {{ Session::get('success') }}
                         </div>
                     @endif
-                    @if(Session::has('error'))
-                        <div class="alert alert-danger" role="alert">
-                            {{ Session::get('error') }}
-                        </div>
+                    @if($errors->any())
+                    <div class="alert alert-danger" role="alert">
+                        <ul class="list-unstyled m-0">
+                            @foreach($errors->all() as $error)
+                            <li> {{ $error }} </li>
+                            @endforeach
+                        </ul>
+                    </div>
                     @endif
                     <form action="{{ route('register-request') }}" method="POST">
                         @csrf

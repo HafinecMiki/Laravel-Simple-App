@@ -19,6 +19,8 @@ Please open terminal in project folder and put command:
 
 ```php artisan serve```
 
-Read tests
+Tests:
+
+```php artisan test --env=testing```
 
 

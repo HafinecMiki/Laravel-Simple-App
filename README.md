@@ -23,4 +23,8 @@ Tests:
 
 ```php artisan test --env=testing```
 
+Radom user generate:
+
+```php artisan app:generate-user```
+
 

@@ -1,10 +1,4 @@
-<!doctype html>
-<?php
-$company = App\Http\Controllers\CompanyController::showById(request('company'));
-?>
-<html lang="en">
 
-<body>
     @extends('layout')
 
     @section('content')
@@ -72,6 +66,3 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
         </div>
     </div>
     @stop
-</body>
-
-</html>

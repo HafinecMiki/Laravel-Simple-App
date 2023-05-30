@@ -1,10 +1,4 @@
-<!doctype html>
-<?php
-$companies = App\Http\Controllers\CompanyController::index();
-?>
-<html lang="en">
 
-<body>
     @extends('layout')
 
     @section('content')
@@ -44,5 +38,3 @@ $companies = App\Http\Controllers\CompanyController::index();
         </div>
     </div>
     @stop
-</body>
-</html>

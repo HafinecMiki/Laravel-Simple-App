@@ -11,7 +11,7 @@ $companies = App\Http\Controllers\CompanyController::index();
     <div class="companies-main-div">
         <div class="d-flex align-items-center justify-content-between mx-sm-5 my-3 mx-3">
             <h3>Companies</h3>
-            <a href="{{ url('/add-or-edit-company') }}">
+            <a href="{{ route('company-create-page') }}">
                 <button class="btn add-new-company-button">New</button>
             </a>
         </div>
@@ -31,7 +31,7 @@ $companies = App\Http\Controllers\CompanyController::index();
                         {{$company->tax_number}}
                     </td>
                     <td class="companies-header-td d-flex justify-content-center">
-                        <a href="{{ url('/company-details/' . $company->id) }}">
+                        <a href="{{ route('company-details', $company->id) }}">
                             <button class="btn btn-secondary">
                                 Details
                                 <i class='far fa-paper-plane'></i>
@@ -45,5 +45,4 @@ $companies = App\Http\Controllers\CompanyController::index();
     </div>
     @stop
 </body>
-
 </html>

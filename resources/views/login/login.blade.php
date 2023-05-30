@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </form>
-                    <a href="{{ url('/sso/google') }}">
+                    <a href="{{ route('sso-google') }}">
                         <div class="mb-3">
                             <div class="d-grid">
                                 <button class="btn btn-primary">Google <img src="{{ URL::to('/') }}/images/google-icon.svg" class="google-icon" /></button>

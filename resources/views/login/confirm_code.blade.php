@@ -22,7 +22,7 @@
                         {{ Session::get('error') }}
                     </div>
                     @endif
-                    <form action="{{ route('verify-code') }}" method="POST">
+                    <form action="{{ route('verify-code', request('user')) }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="code" class="form-label">Code</label>

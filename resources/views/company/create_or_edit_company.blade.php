@@ -56,7 +56,7 @@ $company = request('company') ? App\Http\Controllers\CompanyController::showById
                         </div>
                     </form>
                     <div class="mb-3">
-                        <a class="d-grid" href="/company-details/{{request('company')}}">
+                        <a class="d-grid" href="{{request('company') ? '/company-details/' . request('company') : '/companies'}} ">
                             <button class="btn btn-secondary">Back</button>
                         </a>
                     </div>

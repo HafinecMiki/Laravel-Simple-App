@@ -43,12 +43,12 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item d-flex align-items-center">
             <button class="btn layout-nav-button">
-              <a class="nav-link" href="{{ url('/') }}">Login</a>
+              <a class="nav-link" href="{{ route('login') }}">Login</a>
             </button>
           </li>
           <li class="nav-item d-flex align-items-center ms-2">
             <button class="btn layout-nav-button">
-              <a class="nav-link" href="{{ url('/register') }}">Register</a>
+              <a class="nav-link" href="{{ route('register') }}">Register</a>
             </button>
           </li>
         </ul>

@@ -11,6 +11,7 @@ use App\Models\VerifyCode;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
@@ -80,17 +81,16 @@ class AuthController extends Controller
 
             $user = User::firstWhere('email', $request->email);
 
-            $code = rand(100000, 999999);
+            $code = Str::random(12) . '-' . $user->id;
 
             //check
             $verify_code = VerifyCode::firstWhere('user_id', $user->id);
 
-            if($verify_code) {
+            if ($verify_code) {
                 $verify_code->update([
                     'code' => $code
                 ]);
-            }
-            else{
+            } else {
                 VerifyCode::create([
                     'code' => $code,
                     'user_id' => $user->id
@@ -100,7 +100,7 @@ class AuthController extends Controller
             //send email
             Mail::to($request->email)->send(new VerifyCodeMail($code));
 
-            return redirect('/verify');
+            return redirect('/verify/'. $user->id);
         }
 
         return redirect('/')->with('error', 'Error Email or Password');
@@ -112,9 +112,12 @@ class AuthController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function loginVerifyCode(Request $request):RedirectResponse
+    public function loginVerifyCode(User $user, Request $request): RedirectResponse
     {
-        $verifyCode = VerifyCode::with(['user'])->firstWhere('code', $request->code);
+        $verifyCode = VerifyCode::with(['user'])
+            ->where('code', $request->code)
+            ->where('user_id', $user->id)
+            ->first();
 
         if ($verifyCode) {
             // login

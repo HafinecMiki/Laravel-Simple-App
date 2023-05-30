@@ -22,7 +22,7 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <form action="{{ url('/api/v1/company/' . $company->id) }}" method="POST" class="d-flex">
+                        <form action="{{ route('company-delete', $company->id) }}" method="POST" class="d-flex">
                             {{method_field('DELETE')}}
                             {{csrf_field()}}
                             <button class="btn btn-danger" type="submit">Delete</button>
@@ -61,7 +61,7 @@ $company = App\Http\Controllers\CompanyController::showById(request('company'));
                         </tbody>
                     </table>
                     <div class="d-flex align-items-center justify-content-around">
-                        <a href="{{ url('/add-or-edit-company/' . $company->id) }}">
+                        <a href="{{ route('company-edit-page', $company->id) }}">
                             <button class="btn btn-primary px-4">Edit</button>
                         </a>
                         <!-- Button trigger modal -->

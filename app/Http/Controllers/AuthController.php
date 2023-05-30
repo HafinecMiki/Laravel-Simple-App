@@ -100,7 +100,7 @@ class AuthController extends Controller
             //send email
             Mail::to($request->email)->send(new VerifyCodeMail($code));
 
-            return redirect('/verify/'. $user->id);
+            return redirect('/verify/' . $user->id);
         }
 
         return redirect('/')->with('error', 'Error Email or Password');

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RouterController extends Controller
 {
+
     public function showCompanies()
     {
         $companies = Company::all();

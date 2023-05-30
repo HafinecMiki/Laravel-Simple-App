@@ -1,7 +1,5 @@
-
-    @extends('layout')
-
-    @section('content')
+@extends('layout')
+@section('content')
     <div class="companies-main-div">
         <div class="d-flex align-items-center justify-content-between mx-sm-5 my-3 mx-3">
             <h3>Companies</h3>
@@ -17,24 +15,24 @@
                     <th class="companies-header-th">Action</th>
                 </tr>
                 @foreach ($companies as $company)
-                <tr class="companies-header-tr">
-                    <td class="companies-header-td word-break">
-                        {{$company->name}}
-                    </td>
-                    <td class="companies-header-td word-break">
-                        {{$company->tax_number}}
-                    </td>
-                    <td class="companies-header-td d-flex justify-content-center">
-                        <a href="{{ route('company-details', $company->id) }}">
-                            <button class="btn btn-secondary">
-                                Details
-                                <i class='far fa-paper-plane'></i>
-                            </button>
-                        </a>
-                    </td>
-                </tr>
+                    <tr class="companies-header-tr">
+                        <td class="companies-header-td word-break">
+                            {{ $company->name }}
+                        </td>
+                        <td class="companies-header-td word-break">
+                            {{ $company->tax_number }}
+                        </td>
+                        <td class="companies-header-td d-flex justify-content-center">
+                            <a href="{{ route('company-details', $company->id) }}">
+                                <button class="btn btn-secondary">
+                                    Details
+                                    <i class='far fa-paper-plane'></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
                 @endforeach
             </table>
         </div>
     </div>
-    @stop
+@endsection

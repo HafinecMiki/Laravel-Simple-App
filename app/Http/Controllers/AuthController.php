@@ -32,8 +32,6 @@ class AuthController extends Controller
             return redirect('/')->with('success', 'Login Success');
         }
 
-        throw new EmptyCartException('Cart is empty');
-
         return back()->with('error', 'Error Email or Password');
     }
 
@@ -83,7 +81,7 @@ class AuthController extends Controller
 
             $user = User::firstWhere('email', $request->email);
 
-            $code = Str::random(12) . '-' . $user->id;
+            $code = Str::random(12);
 
             //check
             $verify_code = VerifyCode::firstWhere('user_id', $user->id);
@@ -102,7 +100,7 @@ class AuthController extends Controller
             //send email
             Mail::to($request->email)->send(new VerifyCodeMail($code));
 
-            return redirect('/verify/' . $user->id);
+            return redirect(route('verify', $user->id));
         }
 
         return redirect('/')->with('error', 'Error Email or Password');

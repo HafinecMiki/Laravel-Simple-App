@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\UserNofFoundException;
+use App\Exceptions\UserNotfFoundException;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +35,7 @@ class SocialLoginController extends Controller
             $user = User::query()->where('email', $socialiteUser->getEmail())->first();
 
             if(!$user) {
-                return redirect('/register')->with('error', 'User does not exist! Please do the registration!');
+                return redirect( route('register') )->withErrors(['User not found!']);
             }
 
             Auth::login($user);

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Exceptions\UserNofFoundException;
-use App\Exceptions\UserNotfFoundException;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -32,9 +31,9 @@ class SocialLoginController extends Controller
         $socialiteUser = Socialite::driver('google')->user();
 
         if (!empty($socialiteUser)) {
-            $user = User::query()->where('email', $socialiteUser->getEmail())->first();
-
-            if(!$user) {
+            try {
+                $user = User::query()->where('email', $socialiteUser->getEmail())->firstOrFail();
+            } catch (ModelNotFoundException $exception) {
                 return redirect( route('register') )->withErrors(['User not found!']);
             }
 

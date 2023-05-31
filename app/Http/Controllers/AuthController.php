@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Models\VerifyCode;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Illuminate\Support\Str;
@@ -29,7 +30,7 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($data)) {
-            return redirect('/')->with('success', 'Login Success');
+            return redirect('/');
         }
 
         return back()->with('error', 'Error Email or Password');
@@ -115,19 +116,18 @@ class AuthController extends Controller
      */
     public function loginVerifyCode(User $user, Request $request): RedirectResponse
     {
-        $verifyCode = VerifyCode::with(['user'])
-            ->where('code', $request->code)
-            ->where('user_id', $user->id)
-            ->first();
-
-        if ($verifyCode) {
-            // login
-            Auth::login($verifyCode->user);
-            //remove code
-            $verifyCode->delete();
-            return redirect('/')->with('success', 'Login Success');
+        try {
+            $verifyCode = VerifyCode::with(['user'])
+                ->where('code', $request->code)
+                ->where('user_id', $user->id)
+                ->firstOrFail();
+        } catch (ModelNotFoundException $exception) {
+            return back()->with('error', 'Invalid code!');
         }
-
-        return back()->with('error', 'Invalid code!');
+        // login
+        Auth::login($verifyCode->user);
+        //remove code
+        $verifyCode->delete();
+        return redirect('/')->with('success', 'Login Success');
     }
 }

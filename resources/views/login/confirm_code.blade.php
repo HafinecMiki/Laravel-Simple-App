@@ -16,7 +16,7 @@
                         @csrf
                         <div class="mb-3">
                             <label for="code" class="form-label">Code</label>
-                            <input type="text" name="code" class="form-control" id="code" placeholder="123456"
+                            <input type="text" name="code" class="form-control" id="code" placeholder="abc123"
                                    required>
                         </div>
                         <div class="mb-3">

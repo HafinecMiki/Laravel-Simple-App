@@ -17,7 +17,7 @@
                         <div class="mb-3">
                             <label for="code" class="form-label">Code</label>
                             <input type="text" name="code" class="form-control" id="code" placeholder="123456"
-                                required>
+                                   required>
                         </div>
                         <div class="mb-3">
                             <div class="d-grid">

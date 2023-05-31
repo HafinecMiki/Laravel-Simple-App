@@ -21,31 +21,35 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ request('company') ? route('company-edit', $company->id) : route('company-create') }}"
+                    <form
+                        action="{{ request('company') ? route('company-edit', $company->id) : route('company-create') }}"
                         method="POST">
                         @csrf
                         {{ request('company') ? method_field('PUT') : method_field('POST') }}
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="John Doe"
-                                value="{{ request('company') ? $company->name : '' }}" required>
+                                   value="{{ request('company') ? $company->name : '' }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Tax number</label>
                             <input type="text" name="tax_number" class="form-control" id="name"
-                                placeholder="CV12121" value="{{ request('company') ? $company->tax_number : '' }}" required>
+                                   placeholder="CV12121" value="{{ request('company') ? $company->tax_number : '' }}"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Phone number</label>
                             <input type="text" name="phone_number" class="form-control" id="name"
-                                placeholder="06206666666" value="{{ request('company') ? $company->phone_number : '' }}"
-                                required>
+                                   placeholder="06206666666"
+                                   value="{{ request('company') ? $company->phone_number : '' }}"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" name="email" class="form-control" id="email"
-                                placeholder="name@example.com" value="{{ request('company') ? $company->email : '' }}"
-                                required>
+                                   placeholder="name@example.com"
+                                   value="{{ request('company') ? $company->email : '' }}"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <div class="d-grid">
@@ -55,7 +59,7 @@
                     </form>
                     <div class="mb-3">
                         <a class="d-grid"
-                            href="{{ request('company') ? route('company-details', request('company'))  : route('companies') }} ">
+                           href="{{ request('company') ? route('company-details', request('company'))  : route('companies') }} ">
                             <button class="btn btn-secondary">Back</button>
                         </a>
                     </div>

@@ -17,31 +17,33 @@ class AuthController extends Controller
 {
     /**
      * Login
-     * 
+     *
      * @param Request $request
-     * @return RedirectResponse 
+     * @return RedirectResponse
      */
-    public function login(Request $request)
+    public function login(Request $request): RedirectResponse
     {
-        $credetials = [
+        $data = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
-        if (Auth::attempt($credetials)) {
+        if (Auth::attempt($data)) {
             return redirect('/')->with('success', 'Login Success');
         }
+
+        throw new EmptyCartException('Cart is empty');
 
         return back()->with('error', 'Error Email or Password');
     }
 
     /**
      * register
-     * 
+     *
      * @param RegisterUserRequest $request
-     * @return RedirectResponse 
+     * @return RedirectResponse
      */
-    public function register(RegisterUserRequest $request)
+    public function register(RegisterUserRequest $request): RedirectResponse
     {
         $user = new User($request->validated());
 
@@ -54,10 +56,10 @@ class AuthController extends Controller
 
     /**
      * Logout
-     * 
+     *
      * @return RedirectResponse
      */
-    public function logout()
+    public function logout(): RedirectResponse
     {
         Auth::logout();
 
@@ -66,18 +68,18 @@ class AuthController extends Controller
 
     /**
      * Login 2 FA
-     * 
+     *
      * @param Request $request
      * @return RedirectResponse
      */
-    public function login2FA(Request $request)
+    public function login2FA(Request $request): RedirectResponse
     {
-        $credetials = [
+        $data = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
-        if (Auth::validate($credetials)) {
+        if (Auth::validate($data)) {
 
             $user = User::firstWhere('email', $request->email);
 
@@ -108,7 +110,8 @@ class AuthController extends Controller
 
     /**
      * login verify code
-     * 
+     *
+     * @param User $user
      * @param Request $request
      * @return RedirectResponse
      */

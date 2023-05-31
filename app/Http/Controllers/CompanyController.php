@@ -12,33 +12,12 @@ use Illuminate\Http\RedirectResponse;
 class CompanyController extends Controller
 {
     /**
-     * index company
-     * 
-     * @return Collection
-     */
-    public static function index()
-    {
-        return Company::all();
-    }
-
-    /**
-     * show by id
-     * 
-     * @param int $id
-     * @return Collection
-     */
-    public static function showById(int $id)
-    {
-        return Company::find($id);
-    }
-
-    /**
      * store
-     * 
+     *
      * @param CompanyCreateRequest $request
      * @return RedirectResponse
     */
-    public function store(CompanyCreateRequest $request)
+    public function store(CompanyCreateRequest $request): RedirectResponse
     {
         Company::create($request->validated());
 
@@ -47,12 +26,12 @@ class CompanyController extends Controller
 
     /**
      * update company
-     * 
+     *
      * @param CompanyUpdateRequest $request
      * @param Company $company
      * @return RedirectResponse
      */
-    public function update(CompanyUpdateRequest $request, Company $company)
+    public function update(CompanyUpdateRequest $request, Company $company): RedirectResponse
     {
         $data = $request->validated();
 
@@ -63,11 +42,12 @@ class CompanyController extends Controller
 
     /**
      * delete company
-     * 
+     *
      * @param Company $company
      * @return RedirectResponse
      */
-    public function delete(Company $company) {
+    public function delete(Company $company): RedirectResponse
+    {
         $company->delete();
 
         return redirect('/');

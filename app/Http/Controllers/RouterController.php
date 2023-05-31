@@ -9,17 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class RouterController extends Controller
 {
-
-    public function showCompanies()
+    /**
+     * checkMainRoute
+     *
+     * @return mixed
+     */
+    public function checkMainRoute(): mixed
     {
-        $companies = Company::all();
-
-        return view('company.companies', compact('companies'));
-    }
-
-    public function checkMainRoute()
-    {
-
         if (Auth::check()) {
             $companies = Company::all();
 
@@ -29,12 +25,76 @@ class RouterController extends Controller
         }
     }
 
-    public function showCompanyDetails(Company $company)
+    /**
+     * showLogin
+     *
+     * @return mixed
+     */
+    public function showLogin(): mixed
+    {
+        return view('login.login');
+    }
+
+    /**
+     * showVerify
+     *
+     * @return mixed
+     */
+    public function showVerify(): mixed
+    {
+        return view('login.confirm_code');
+    }
+
+    /**
+     * showRegister
+     *
+     * @return mixed
+     */
+    public function showRegister(): mixed
+    {
+        return view('login.register');
+    }
+
+    /**
+     * showCompanies
+     *
+     * @return mixed
+     */
+    public function showCompanies(): mixed
+    {
+        $companies = Company::all();
+
+        return view('company.companies', compact('companies'));
+    }
+
+    /**
+     * showCompanyDetails
+     *
+     * @param Company $company
+     * @return mixed
+     */
+    public function showCompanyDetails(Company $company): mixed
     {
         return view('company.company_details', compact('company'));
     }
 
-    public function showCompanyEdit(Company $company)
+    /**
+     * showCompanyCreate
+     *
+     * @return mixed
+     */
+    public function showCompanyCreate(): mixed
+    {
+        return view('company.create_or_edit_company');
+    }
+
+    /**
+     * showCompanyEdit
+     *
+     * @param Company $company
+     * @return mixed
+     */
+    public function showCompanyEdit(Company $company): mixed
     {
         return view('company.create_or_edit_company', compact('company'));
     }

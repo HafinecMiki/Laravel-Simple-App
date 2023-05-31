@@ -15,17 +15,17 @@ class SocialLoginController extends Controller
      *
      * @return RedirectResponse
      */
-    public function redirectToProvider()
+    public function redirectToProvider(): RedirectResponse
     {
         return Socialite::driver('google')->redirect();
     }
 
     /**
      * google callback
-     * 
+     *
      * @return RedirectResponse
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback(): RedirectResponse
     {
         $socialiteUser = Socialite::driver('google')->user();
 

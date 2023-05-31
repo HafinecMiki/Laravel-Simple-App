@@ -17,7 +17,7 @@
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
                             <input type="email" name="email" class="form-control" id="email"
-                                placeholder="name@example.com" required>
+                                   placeholder="name@example.com" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
@@ -25,21 +25,24 @@
                         </div>
                         <div class="mb-3">
                             <div class="d-grid">
-                                <button class="btn btn-primary" type="button" onclick="submitForm('login')">Login</button>
+                                <button class="btn btn-primary" type="button" onclick="submitForm('login')">Login
+                                </button>
                             </div>
                         </div>
                         <div class="mb-3">
                             <div class="d-grid">
                                 <button class="btn btn-primary" type="button"
-                                    onclick="submitForm('login2FA')">Login2FA</button>
+                                        onclick="submitForm('login2FA')">Login2FA
+                                </button>
                             </div>
                         </div>
                     </form>
                     <a href="{{ route('sso-google') }}">
                         <div class="mb-3">
                             <div class="d-grid">
-                                <button class="btn btn-primary">Google <img src="{{ URL::to('/') }}/images/google-icon.svg"
-                                        class="google-icon" /></button>
+                                <button class="btn btn-primary">Google <img
+                                        src="{{ URL::to('/') }}/images/google-icon.svg"
+                                        class="google-icon"/></button>
                             </div>
                         </div>
                     </a>

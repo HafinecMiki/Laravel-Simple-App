@@ -23,7 +23,7 @@ Route::prefix('v1')->group(function () {
         Route::post('/register', [AuthController::class, 'register'])->name('register-request');
     });
 
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => 'auth:sanctum'], function () {
         //functions company
         Route::get('/companies-data', [CompanyController::class, 'index'])->name('companies-data');
         Route::get('/company/show-by-id/{id}', [CompanyController::class, 'showById'])->name('company-show-by-id');

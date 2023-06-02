@@ -82,7 +82,7 @@ class UserTest extends TestCase
 
         $this->assertDatabaseHas('verify_codes', ['user_id' => $this->findUserByEmail($data['email'])->id]);
 
-        $this->postJson(self::ROUTE . 'verify-code', ['code' => $this->findCodeByEmail($data['email'])->code])->assertStatus(302);
+        $this->postJson(self::ROUTE . 'verify-code/'. $this->findUserByEmail($data['email'])->id, ['code' => $this->findCodeByEmail($data['email'])->code])->assertStatus(302);
 
         $this->assertDatabaseMissing('verify_codes', ['user_id' => $this->findUserByEmail($data['email'])->id]);
     }
@@ -95,10 +95,31 @@ class UserTest extends TestCase
     public function test_invalid_verify_code()
     {
         $data = [
-            'code'    => $this->faker->numberBetween(100000, 999999),
+            'code'    => $this->faker->realTextBetween(12),
         ];
 
-        $response = $this->postJson(self::ROUTE . 'verify-code', $data)->assertStatus(302);
+        $response = $this->postJson(self::ROUTE . 'verify-code/' . $this->faker->numberBetween(1,10), $data)->assertStatus(302);
+
+        $response->assertSessionHas([
+            'error' => 'Invalid code!'
+        ]);
+    }
+
+     /**
+     * test_invalid_user_verify_code
+     *
+     * @return void
+     */
+    public function test_invalid_user_verify_code()
+    {
+        $data = [
+            'email'    => 'test@example.com',
+            'password' => 'password'
+        ];
+
+        $this->postJson(self::ROUTE . 'login2FA', $data)->assertStatus(302);
+
+        $response = $this->postJson(self::ROUTE . 'verify-code/' . 2, ['code' => $this->findCodeByEmail($data['email'])->code])->assertStatus(302);
 
         $response->assertSessionHas([
             'error' => 'Invalid code!'
